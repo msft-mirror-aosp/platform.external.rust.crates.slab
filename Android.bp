@@ -6,3 +6,24 @@ rust_library_host_rlib {
     srcs: ["src/lib.rs"],
     edition: "2015",
 }
+
+rust_test_host {
+    name: "slab_tests_slab",
+    crate_name: "slab",
+    srcs: ["src/lib.rs"],
+    test_suites: ["general-tests"],
+    auto_gen_config: true,
+    edition: "2015",
+}
+
+rust_test_host {
+    name: "slab_tests_slab1",
+    crate_name: "slab",
+    srcs: ["tests/slab.rs"],
+    test_suites: ["general-tests"],
+    auto_gen_config: true,
+    edition: "2015",
+    rlibs: [
+        "libslab",
+    ],
+}
