@@ -1,13 +1,11 @@
 {
   "presubmit": [
     {
-      // Test name is module name because it has the crate_name suffix.
       "name": "slab_tests_slab",
       "host": true
     },
     {
-      // Default test name is module name + '_' + crate_name.
-      "name": "slab_tests_slab1_slab",
+      "name": "slab_tests_slab1",
       "host": true
     }
   ]
