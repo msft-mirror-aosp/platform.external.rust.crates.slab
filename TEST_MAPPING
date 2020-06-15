@@ -5,8 +5,14 @@
       "host": true
     },
     {
+      "name": "slab_tests_slab"
+    },
+    {
       "name": "slab_tests_slab1",
       "host": true
+    },
+    {
+      "name": "slab_tests_slab1"
     }
   ]
 }
