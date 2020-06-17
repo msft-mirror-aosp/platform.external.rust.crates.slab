@@ -1,18 +1,18 @@
 {
   "presubmit": [
     {
-      "name": "slab_tests_slab",
+      "name": "slab_host_tests_slab",
       "host": true
     },
     {
-      "name": "slab_tests_slab"
+      "name": "slab_device_tests_slab"
     },
     {
-      "name": "slab_tests_slab1",
+      "name": "slab_host_tests_slab1",
       "host": true
-    },
-    {
-      "name": "slab_tests_slab1"
     }
+    //{
+    //  "name": "slab_device_tests_slab1"
+    //}
   ]
 }
