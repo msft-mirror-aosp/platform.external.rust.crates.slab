@@ -29,7 +29,7 @@ rust_test {
 }
 
 rust_defaults {
-    name: "slab_defaults1",
+    name: "slab_defaults_slab",
     crate_name: "slab",
     test_suites: ["general-tests"],
     auto_gen_config: true,
@@ -41,12 +41,12 @@ rust_defaults {
 
 rust_test_host {
     name: "slab_host_test_tests_slab",
-    defaults: ["slab_defaults1"],
+    defaults: ["slab_defaults_slab"],
     srcs: ["tests/slab.rs"],
 }
 
 rust_test {
     name: "slab_device_test_tests_slab",
-    defaults: ["slab_defaults1"],
+    defaults: ["slab_defaults_slab"],
     srcs: ["tests/slab.rs"],
 }
