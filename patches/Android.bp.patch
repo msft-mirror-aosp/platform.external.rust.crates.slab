@@ -1,0 +1,15 @@
+diff --git a/Android.bp b/Android.bp
+index 81236b0..18997c4 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -6,6 +6,10 @@ rust_library {
+     crate_name: "slab",
+     srcs: ["src/lib.rs"],
+     edition: "2015",
++    apex_available: [
++        "//apex_available:platform",
++        "com.android.virt",
++    ],
+ }
+ 
+ rust_defaults {
