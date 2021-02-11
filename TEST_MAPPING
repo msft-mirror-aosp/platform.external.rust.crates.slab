@@ -2,29 +2,13 @@
 {
   "presubmit": [
     {
-      "host": true,
-      "name": "slab_host_test_src_lib"
-    },
-    {
       "name": "slab_device_test_src_lib"
-    },
-    {
-      "host": true,
-      "name": "slab_host_test_tests_slab"
     },
     {
       "name": "slab_device_test_tests_slab"
     },
     {
-      "host": true,
-      "name": "futures-util_host_test_src_lib"
-    },
-    {
       "name": "futures-util_device_test_src_lib"
-    },
-    {
-      "host": true,
-      "name": "tokio-macros_host_test_src_lib"
     }
   ]
 }
