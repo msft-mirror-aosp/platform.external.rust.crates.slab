@@ -24,6 +24,10 @@ rust_library {
     crate_name: "slab",
     srcs: ["src/lib.rs"],
     edition: "2015",
+    features: [
+        "default",
+        "std",
+    ],
     apex_available: [
         "//apex_available:platform",
         "com.android.virt",
@@ -37,6 +41,14 @@ rust_defaults {
     test_suites: ["general-tests"],
     auto_gen_config: true,
     edition: "2015",
+    features: [
+        "default",
+        "std",
+    ],
+    rustlibs: [
+        "libserde",
+        "libserde_test",
+    ],
 }
 
 rust_test_host {
@@ -55,18 +67,39 @@ rust_test {
 rust_defaults {
     name: "slab_defaults_slab",
     crate_name: "slab",
-    srcs: ["tests/slab.rs"],
     test_suites: ["general-tests"],
     auto_gen_config: true,
     edition: "2015",
+    features: [
+        "default",
+        "std",
+    ],
     rustlibs: [
+        "libserde",
+        "libserde_test",
         "libslab",
     ],
 }
 
 rust_test_host {
+    name: "slab_host_test_tests_serde",
+    defaults: ["slab_defaults_slab"],
+    srcs: ["tests/serde.rs"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "slab_device_test_tests_serde",
+    defaults: ["slab_defaults_slab"],
+    srcs: ["tests/serde.rs"],
+}
+
+rust_test_host {
     name: "slab_host_test_tests_slab",
     defaults: ["slab_defaults_slab"],
+    srcs: ["tests/slab.rs"],
     test_options: {
         unit_test: true,
     },
@@ -75,4 +108,14 @@ rust_test_host {
 rust_test {
     name: "slab_device_test_tests_slab",
     defaults: ["slab_defaults_slab"],
+    srcs: ["tests/slab.rs"],
 }
+
+// dependent_library ["feature_list"]
+//   proc-macro2-1.0.27 "default,proc-macro"
+//   quote-1.0.9 "default,proc-macro"
+//   serde-1.0.126 "default,derive,serde_derive,std"
+//   serde_derive-1.0.126 "default"
+//   serde_test-1.0.126
+//   syn-1.0.72 "clone-impls,default,derive,parsing,printing,proc-macro,quote"
+//   unicode-xid-0.2.2 "default"
