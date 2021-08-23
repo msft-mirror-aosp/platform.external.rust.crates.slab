@@ -44,6 +44,9 @@
       "name": "authfs_device_test_src_lib"
     },
     {
+      "name": "doh_unit_test"
+    },
+    {
       "name": "futures-util_device_test_src_lib"
     },
     {
@@ -261,6 +264,9 @@
     },
     {
       "name": "tokio_device_test_tests_uds_split"
+    },
+    {
+      "name": "virtualizationservice_device_test"
     }
   ]
 }
