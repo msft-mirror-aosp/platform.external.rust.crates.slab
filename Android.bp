@@ -22,43 +22,59 @@ rust_library {
     name: "libslab",
     host_supported: true,
     crate_name: "slab",
-    cargo_env_compat: true,
-    cargo_pkg_version: "0.4.5",
     srcs: ["src/lib.rs"],
-    edition: "2018",
-    features: [
-        "default",
-        "std",
-    ],
+    edition: "2015",
     apex_available: [
         "//apex_available:platform",
-        "com.android.bluetooth",
         "com.android.resolv",
         "com.android.virt",
     ],
     min_sdk_version: "29",
 }
 
-rust_test {
-    name: "slab_test_tests_slab",
-    host_supported: true,
+rust_defaults {
+    name: "slab_defaults",
     crate_name: "slab",
-    cargo_env_compat: true,
-    cargo_pkg_version: "0.4.5",
-    srcs: ["tests/slab.rs"],
+    srcs: ["src/lib.rs"],
     test_suites: ["general-tests"],
     auto_gen_config: true,
+    edition: "2015",
+}
+
+rust_test_host {
+    name: "slab_host_test_src_lib",
+    defaults: ["slab_defaults"],
     test_options: {
         unit_test: true,
     },
-    edition: "2018",
-    features: [
-        "default",
-        "std",
-    ],
+}
+
+rust_test {
+    name: "slab_device_test_src_lib",
+    defaults: ["slab_defaults"],
+}
+
+rust_defaults {
+    name: "slab_defaults_slab",
+    crate_name: "slab",
+    srcs: ["tests/slab.rs"],
+    test_suites: ["general-tests"],
+    auto_gen_config: true,
+    edition: "2015",
     rustlibs: [
-        "libserde",
-        "libserde_test",
         "libslab",
     ],
+}
+
+rust_test_host {
+    name: "slab_host_test_tests_slab",
+    defaults: ["slab_defaults_slab"],
+    test_options: {
+        unit_test: true,
+    },
+}
+
+rust_test {
+    name: "slab_device_test_tests_slab",
+    defaults: ["slab_defaults_slab"],
 }
